@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz: Sistema Tegumentar</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    .quiz {
+        width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        margin-top: 20px;
+    }
+    .question {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+    input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .correct {
+        color: green;
+    }
+    .incorrect {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<div class="quiz">
+    <h1>Quiz: Sistema Tegumentar</h1>
+    <form onsubmit="return checkAnswers()">
+        <div class="question">
+            <p>1. Qual é a camada mais externa da pele?</p>
+            <label><input type="radio" name="q1" value="a"> a) Epiderme</label>
+            <label><input type="radio" name="q1" value="b"> b) Derme</label>
+            <label><input type="radio" name="q1" value="c"> c) Hipoderme</label>
+            <span id="q1-feedback"></span>
+        </div>
+        <div class="question">
+            <p>2. Qual é a função principal da derme?</p>
+            <label><input type="radio" name="q2" value="a"> a) Produzir melanina</label>
+            <label><input type="radio" name="q2" value="b"> b) Fornecer isolamento térmico</label>
+            <label><input type="radio" name="q2" value="c"> c) Produzir suor e sebo</label>
+            <label><input type="radio" name="q2" value="d"> d) Fornecer suporte estrutural para a epiderme</label>
+            <span id="q2-feedback"></span>
+        </div>
+        <div class="question">
+            <p>3. O que são os folículos pilosos?</p>
+            <label><input type="radio" name="q3" value="a"> a) Estruturas responsáveis pela produção de melanina</label>
+            <label><input type="radio" name="q3" value="b"> b) Pequenos poros na superfície da pele</label>
+            <label><input type="radio" name="q3" value="c"> c) Estruturas localizadas na derme que dão origem aos pelos</label>
+            <label><input type="radio" name="q3" value="d"> d) Glândulas responsáveis pela produção de suor</label>
+            <span id="q3-feedback"></span>
+        </div>
+        <div class="question">
+            <p>4. Qual é a função das glândulas sebáceas?</p>
+            <label><input type="radio" name="q4" value="a"> a) Produzir suor</label>
+            <label><input type="radio" name="q4" value="b"> b) Produzir queratina</label>
+            <label><input type="radio" name="q4" value="c"> c) Produzir sebo para lubrificar a pele e o cabelo</label>
+            <label><input type="radio" name="q4" value="d"> d) Produzir melanina</label>
+            <span id="q4-feedback"></span>
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+
+<script>
+function checkAnswers() {
+    var correctAnswers = ["a", "d", "c", "c"];
+    var userAnswers = [];
+    var feedbacks = document.querySelectorAll('[id^=q]');
+    for (var i = 0; i < 4; i++) {
+        var radios = document.getElementsByName('q' + (i + 1));
+        for (var j = 0; j < radios.length; j++) {
+            if (radios[j].checked) {
+                userAnswers.push(radios[j].value);
+            }
+        }
+        if (userAnswers[i] === correctAnswers[i]) {
+            feedbacks[i].innerHTML = "Resposta correta!";
+            feedbacks[i].classList.add("correct");
+        } else {
+            feedbacks[i].innerHTML = "Resposta incorreta!";
+            feedbacks[i].classList.add("incorrect");
+        }
+    }
+    return false; // Prevent form submission
+}
+</script>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa Mental: Funções do Sistema Tegumentar</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+
+    #mindmap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 500px;
+    }
+
+    .node {
+        flex: 1;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .node p {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .node ul {
+        list-style: none;
+        padding-left: 20px;
+    }
+
+    .node ul li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div id="mindmap">
+    <div id="protecao" class="node">
+        <p>Proteção contra agentes externos</p>
+        <ul>
+            <li>Desidratação</li>
+            <li>Hidratação excessiva</li>
+            <li>Raios UV</li>
+            <li>Microrganismos patogênicos</li>
+            <li>Choques mecânicos</li>
+        </ul>
+    </div>
+    <div id="regulacao" class="node">
+        <p>Regulação da temperatura corporal</p>
+    </div>
+    <div id="sensibilidade" class="node">
+        <p>Sensibilidade tátil e térmica</p>
+    </div>
+    <div id="producao" class="node">
+        <p>Produção de vitamina D</p>
+    </div>
+    <div id="excrecao" class="node">
+        <p>Excreção de toxinas</p>
+    </div>
+    <div id="reserva" class="node">
+        <p>Reserva de nutrientes e água</p>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll('.node').forEach(item => {
+    item.addEventListener('mouseover', event => {
+        item.style.backgroundColor = '#f0f0f0';
+    });
+    item.addEventListener('mouseout', event => {
+        item.style.backgroundColor = '#fff';
+    });
+});
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apresentação: Sistema Tegumentar</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .slide {
+        display: none;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .slide img {
+        max-width: 500px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #btn-prev, #btn-next {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="slide" id="slide-1">
+    <h1>Estrutura do Sistema Tegumentar</h1>
+    <img src="imagens/WhatsApp Image 2024-05-17 at 12.28.27.jpeg" alt="Estrutura do Sistema Tegumentar">
+    <p>A pele é composta por três camadas principais: epiderme, derme e hipoderme.</p>
+</div>
+
+<div class="slide" id="slide-2">
+    <h1>Funções do Sistema Tegumentar</h1>
+    <p>O sistema tegumentar possui diversas funções, incluindo proteção, regulação térmica, sensibilidade, produção de vitamina D e armazenamento de gordura.</p>
+</div>
+
+<div class="slide" id="slide-3">
+    <h1>Anexos da Pele</h1>
+    <p>Os anexos da pele incluem unhas, cabelos e pelos. Eles desempenham papéis importantes na proteção e na regulação da temperatura do corpo.</p>
+</div>
+
+<div class="slide" id="slide-4">
+    <h1>Avaliação Clínica</h1>
+    <p>Para avaliar o sistema tegumentar clinicamente, é importante observar a hidratação da pele, a presença de lesões, a temperatura, o turgor e a elasticidade.</p>
+</div>
+
+<button class="btn" id="btn-prev" onclick="changeSlide(-1)">Anterior</button>
+<button class="btn" id="btn-next" onclick="changeSlide(1)">Próximo</button>
+
+<script>
+let currentSlide = 1;
+showSlide(currentSlide);
+
+function changeSlide(n) {
+    showSlide(currentSlide += n);
+}
+
+function showSlide(n) {
+    let slides = document.getElementsByClassName("slide");
+    if (n > slides.length) { currentSlide = 1 }
+    if (n < 1) { currentSlide = slides.length }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[currentSlide - 1].style.display = "block";
+}
+</script>
+
+</body>
+</html>

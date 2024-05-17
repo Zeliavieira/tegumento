@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avaliação Clínica da Pele</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    #checklist, #simulacao {
+        margin-bottom: 40px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    #resultado {
+        padding: 0;
+    }
+</style>
+</head>
+<body>
+
+<h1>Avaliação Clínica da Pele</h1>
+
+<div id="checklist">
+    <h2>Checklist</h2>
+    <ul>
+        <li><input type="checkbox" id="check1"><label for="check1">Cor da pele (pálida, cianótica, avermelhada, etc.)</label></li>
+        <li><input type="checkbox" id="check2"><label for="check2">Textura da pele (lisa, áspera, descamativa, etc.)</label></li>
+        <li><input type="checkbox" id="check3"><label for="check3">Hidratação da pele (seca, úmida, etc.)</label></li>
+        <li><input type="checkbox" id="check4"><label for="check4">Integridade da pele (lesões, feridas, erupções cutâneas)</label></li>
+        <li><input type="checkbox" id="check5"><label for="check5">Temperatura da pele (quente, fria, etc.)</label></li>
+        <li><input type="checkbox" id="check6"><label for="check6">Elasticidade da pele (turgor)</label></li>
+        <li><input type="checkbox" id="check7"><label for="check7">Edema (inchaço)</label></li>
+        <li><input type="checkbox" id="check8"><label for="check8">Presença de exsudato (secreção)</label></li>
+        <li><input type="checkbox" id="check9"><label for="check9">Presença de prurido (coceira)</label></li>
+        <li><input type="checkbox" id="check10"><label for="check10">Distribuição dos pelos e cabelos</label></li>
+    </ul>
+</div>
+
+<div id="simulacao">
+    <h2>Simulação de Exame Clínico</h2>
+    <p>Comece a avaliação clínica da pele marcando os itens conforme sua observação:</p>
+    <ul id="resultado"></ul>
+</div>
+
+<script>
+document.querySelectorAll('input[type="checkbox"]').forEach(item => {
+    item.addEventListener('change', event => {
+        const text = item.nextElementSibling.textContent;
+        const isChecked = item.checked;
+        const resultado = document.getElementById('resultado');
+        
+        if (isChecked) {
+            resultado.innerHTML += `<li>${text}</li>`;
+        } else {
+            const items = resultado.getElementsByTagName('li');
+            Array.from(items).forEach(li => {
+                if (li.textContent === text) {
+                    li.remove();
+                }
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>

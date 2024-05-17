@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoavaliação do Plano de Estudo</title>
+    <style>
+        /* Estilos CSS aqui */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #35424a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Autoavaliação do Plano de Estudo</h1>
+        <form id="assessmentForm">
+            <label for="content">O conteúdo do plano foi claro e compreensível?</label>
+            <input type="radio" name="content" value="sim"> Sim
+            <input type="radio" name="content" value="nao"> Não <br>
+
+            <label for="organization">O plano estava bem organizado e estruturado?</label>
+            <input type="radio" name="organization" value="sim"> Sim
+            <input type="radio" name="organization" value="nao"> Não <br>
+
+            <label for="engagement">Você se sentiu engajado e interessado durante o estudo?</label>
+            <input type="radio" name="engagement" value="sim"> Sim
+            <input type="radio" name="engagement" value="nao"> Não <br>
+
+            <label for="understanding">Você sente que entendeu bem o assunto abordado?</label>
+            <input type="radio" name="understanding" value="sim"> Sim
+            <input type="radio" name="understanding" value="nao"> Não <br>
+
+            <label for="feedback">Você tem algum feedback adicional para melhorar o plano?</label>
+            <textarea name="feedback" rows="4" cols="50"></textarea>
+
+            <button type="button" onclick="submitAssessment()">Enviar Avaliação</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function submitAssessment() {
+            const form = document.getElementById("assessmentForm");
+            const formData = new FormData(form);
+            let result = "Avaliação:\n";
+
+            for (const entry of formData.entries()) {
+                result += `${entry[0]}: ${entry[1]}\n`;
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>

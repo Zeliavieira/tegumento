@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apresentação: Dermatite Atópica</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+
+    #apresentacao {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, p {
+        text-align: center;
+        color: #333;
+    }
+
+    .slide {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div id="apresentacao">
+    <h1>Apresentação: Dermatite Atópica</h1>
+    <div class="slide">
+        <h2>Causas</h2>
+        <p>Fatores genéticos, sistema imunológico hiperreativo e disfunção da barreira cutânea.</p>
+    </div>
+    <div class="slide">
+        <h2>Sintomas</h2>
+        <p>Coceira intensa, pele seca e escamosa, erupções cutâneas avermelhadas e inflamadas.</p>
+    </div>
+    <div class="slide">
+        <h2>Tratamentos</h2>
+        <p>Hidratação da pele, cuidados suaves, medicamentos tópicos e sistêmicos.</p>
+    </div>
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    const slides = document.getElementsByClassName("slide");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 5000); // Muda a cada 5 segundos
+}
+</script>
+
+</body>
+</html>
